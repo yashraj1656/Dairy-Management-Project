@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DairySync | Premium SaaS Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- SPA content injected here -->
+    </div>
+
+    <!-- Login Template -->
+    <template id="tpl-login">
+        <div class="login-container fade-in">
+            <div class="glass-panel login-panel">
+                <div class="logo center">
+                    <div class="logo-icon">🥛</div>
+                    <h2>DairySync</h2>
+                </div>
+                <h3 class="login-subtitle">Sign in to your account</h3>
+                <form id="login-form">
+                    <div class="input-group">
+                        <label>Phone Number</label>
+                        <input type="text" id="phone" placeholder="Enter your phone number" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Password</label>
+                        <input type="password" id="password" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn-primary w-100 mt-2">Sign In</button>
+                    <p id="login-error" class="error-msg"></p>
+                </form>
+                <div class="register-prompt">
+                    <p>New dairy business? <a href="#" id="go-register">Register here</a></p>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- Register Template -->
+    <template id="tpl-register">
+        <div class="login-container fade-in">
+            <div class="glass-panel login-panel">
+                <div class="logo center">
+                    <div class="logo-icon">🏢</div>
+                    <h2>DairySync SaaS</h2>
+                </div>
+                <h3 class="login-subtitle">Register your Dairy Business</h3>
+                <form id="register-form">
+                    <div class="input-group">
+                        <label>Business Name</label>
+                        <input type="text" id="reg-biz-name" placeholder="E.g. Sunrise Dairy" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Admin Full Name</label>
+                        <input type="text" id="reg-admin-name" placeholder="E.g. John Doe" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Admin Phone Number</label>
+                        <input type="text" id="reg-phone" placeholder="Your phone number" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Password</label>
+                        <input type="password" id="reg-password" placeholder="Create a strong password" required>
+                    </div>
+                    <button type="submit" class="btn-primary w-100 mt-2">Create Business</button>
+                    <p id="reg-error" class="error-msg"></p>
+                </form>
+                <div class="register-prompt">
+                    <p>Already registered? <a href="#" id="go-login">Back to login</a></p>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- Admin Dashboard Template -->
+    <template id="tpl-admin-dashboard">
+        <div class="dashboard-container fade-in">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="logo">
+                    <div class="logo-icon">🥛</div>
+                    <h2>DairySync</h2>
+                </div>
+                <nav class="nav-menu">
+                    <a href="#admin" class="nav-item active">Dashboard</a>
+                    <a href="#farmers" class="nav-item">Farmers & Labour</a>
+                    <a href="#inventory" class="nav-item">Inventory & Feed</a>
+                    <a href="#payments" class="nav-item">Bulk Payments</a>
+                </nav>
+                <div class="user-profile">
+                    <div class="avatar admin-avatar">👑</div>
+                    <div class="user-info">
+                        <span id="nav-user-name">Admin User</span>
+                        <span class="user-role">Business Owner</span>
+                    </div>
+                    <button id="logout-btn" class="btn-icon" title="Logout">🚪</button>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <header class="top-header">
+                    <div class="greeting">
+                        <h1>Admin Overview</h1>
+                        <p>Global statistics for your dairy business over the last 30 days.</p>
+                    </div>
+                    <button class="btn-primary" id="refresh-admin-btn">Refresh Data</button>
+                </header>
+
+                <!-- KPIs -->
+                <section class="kpi-grid">
+                    <div class="glass-card kpi-card">
+                        <div class="kpi-header">Milk Collected</div>
+                        <div class="kpi-value highlight" id="admin-milk-qty">0.0 L</div>
+                    </div>
+                    <div class="kpi-card glass-card">
+                        <div class="kpi-header">Milk Revenue</div>
+                        <div class="kpi-value positive" id="admin-milk-rev">₹0</div>
+                    </div>
+                    <div class="kpi-card glass-card">
+                        <div class="kpi-header">Feed Sales</div>
+                        <div class="kpi-value" id="admin-feed-sales">₹0</div>
+                    </div>
+                    <div class="kpi-card glass-card warning">
+                        <div class="kpi-header">Active Loans</div>
+                        <div class="kpi-value negative" id="admin-loans">₹0</div>
+                    </div>
+                </section>
+
+                <section class="content-grid">
+                    <div class="glass-card full-width">
+                        <h3>Business Operations</h3>
+                        <p class="mb-2 text-secondary">Manage daily operations securely.</p>
+                        <div class="action-buttons">
+                            <button class="btn-secondary" id="btn-add-farmer">+ Register Farmer</button>
+                            <button class="btn-secondary" id="btn-run-payroll">Run Payroll Job</button>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </template>
+
+    <script src="app.js"></script>
+</body>
+</html>
